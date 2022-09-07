@@ -212,7 +212,7 @@ opener.onclick = (e) => {
         for (let row of rows) {
             compter += parseFloat(row.innerText);
         }
-        p_total.innerText = compter.toFixed(2);
+        p_total.innerText = allowArbre === true ? parseFloat(compter.toFixed(2))+1:compter.toFixed(2);
     }
 };
 
