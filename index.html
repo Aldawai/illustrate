@@ -195,6 +195,12 @@ function parentR (e, verif) {
 function del(e){
     count.innerText = parseInt(count.innerText)-1;
     e.parentNode.parentNode.parentNode.remove();
+    let rows = document.querySelectorAll(".p-montant"),
+    compter = 0;
+    for (let row of rows) {
+        compter += parseFloat(row.innerText);
+    }
+    p_total.innerText = allowArbre === true ? parseFloat(compter.toFixed(2))+1:compter.toFixed(2);
 }
 
 opener.onclick = (e) => {
