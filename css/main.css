@@ -1,0 +1,249 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: rgb(48, 48, 48)
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+    border-radius: 12px;
+}
+
+.search{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.search input{
+    outline: none;
+    border: none;
+    width: 30vw
+}
+
+.user-infos{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.user-infos div{
+    position: relative;
+}
+
+.user-infos img{
+    margin: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.compteur{
+    /* content: attr(count); */
+    /* content: "10"; */
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    background-color: rgb(44, 44, 44);
+}
+
+.user-infos input, .com, .devis{
+    border: none;
+    background-color: rgb(19, 141, 74);
+    color: white;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+section{
+    display: flex;
+    justify-content: space-around;
+}
+
+section > div{
+    --Padding: 15px;
+    padding: var(--Padding);
+    width: calc(33.33% - var(--Padding));
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.image img{
+    width: 100%;
+}
+
+.details h2{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.details label{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.details input, .details select{
+    border: 1px solid grey;
+    border-radius: 3px;
+    outline: none;
+    padding: 3px 4px;
+}
+
+.stock-container{
+    color: rgb(19, 141, 74);
+}
+
+.row{
+    margin: 10px 0;
+}
+
+.prix-unitaire{
+    font-size: 17px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.prix-global{
+    margin: 15px;
+    font-size: 25px;
+    font-weight: 25px;
+}
+
+.prix button{
+    background-color: rgb(19, 141, 74);
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.transport img{
+    width: 30px;
+    margin-left: 20px;
+}
+
+
+
+/*Modal*/
+.modal{
+    --Width: clamp(400px, 60%, 800px);
+    /* --Width: 350px; */
+    --Height: clamp(400px, 75%, 800px);
+    padding: 20px;
+    position: absolute;
+    height: var(--Height);
+    width: var(--Width);
+    background-color: white;
+    left: calc(50% - var(--Width)/2);
+    top: calc(50% - var(--Height)/2);
+    border-radius: 12px;
+    overflow-y: scroll;
+    box-shadow: 0 0 100px 1000px rgba(41, 41, 41, 0.623),
+        0 0 20px black;
+    display: none;
+}
+
+.autorisation{
+    /* height: 200px; */
+    width: 600px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.about{
+    display: flex;
+}
+
+.au-row{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 8px;
+}
+
+.au-row span{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.p-panier{
+    width: 350px;
+}
+
+.p-row{
+    display: flex;
+    width: 100%;
+    height: 100px;
+}
+
+.p-row > img{
+    height: 100%;
+    margin-right: 10px;
+}
+
+.p-titre{
+    margin-left: 8px;
+}
+
+.p-quantite{
+    padding: 5px 8px;
+    border-radius: 4px;
+    background-color: rgba(192, 192, 192, 0.322);
+}
+
+.p-more{
+    margin-left: auto;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.p-retails{
+    width: 100%;
+}
+
+.commande{
+    display: flex;
+}
+
+.com, .devis{
+    /* margin: 1px; */
+    cursor: pointer;
+}
+
+.p-delete{
+    transform: scaleY(1.2);
+    cursor: pointer;
+}
+

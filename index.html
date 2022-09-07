@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo-parent">
+            <img src="./images/logo.png" class="logo" alt="logo">
+        </div>
+        <div class="rech">
+            <div class="search">
+                <input type="text" placeholder="Quelles chaussures recherchez-vous ?" class="recherche-zone" id="">
+                <img src="./images/search.svg" alt="">
+            </div>
+        </div>
+        <div class="user-infos">
+            <img src="./images/user.svg" alt="photo-de-profil">
+            <img src="./images/like-vide.png" alt="liker">
+            <div>
+                <img src="./images/bag.svg" alt="panier" class="opener" count="0">
+                <span class="compteur">0</span>
+            </div>
+            <input type="button" value="Demander un devis" class="devis">
+        </div>
+    </header>
+    <section>
+        <div class="image">
+            <img src="./images/image-2.jpg" alt="image-d-une-chaussure">
+            <span class="liker"></span>
+        </div>
+        <div class="details">
+            <h2> 
+                Basket
+            </h2>
+            <div class="row">
+                <label for="couleur">Couleur:</label>
+                <select class="couleur" id="couleur">
+                    <option value="noir">Noir</option>
+                    <option value="blanc">Blanc</option>
+                    <option value="rouge">Rouge</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="matiere">Matière:</label>
+                <select class="matiere" id="matiere">
+                    <option value="noir">Cuire</option>
+                    <option value="blanc">Autre</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="quantite">Quantité:</label>
+                <input type="number" min="1" value="1" class="quantite" id="quantite">
+                    
+            </div>
+            <div class="stock-container">
+                Stock:<span class="stock"> 130 </span>pièces
+            </div>
+        </div>
+        <div class="prix">
+            <div class="prix-unitaire">
+                Prix unitaire: <span>2.23</span>€ ht
+            </div>
+            <div class="prix-global">
+                Budget global: <span>2.23</span>€ ht
+            </div>
+            <button class="ajouter">Ajouter au panier</button>
+            <div class="transport">
+                <img src="./images/transport.svg" alt="transport">
+                <span>Frais de transport offerts</span>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="modal">
+        <h2>Votre article a été ajouté au panier !</h2>
+    </div> -->
+    <div class="p-panier modal">
+        <div class="p-container">
+            <!-- <div class="p-row">
+                <img src="./images/image-2.jpg" alt="">
+                <div class="p-retails">
+                    <h2 class='p-titre'>Titre</h2>
+                    <div class="p-more">
+                        <span class="p-quantite">2</span>
+                        <span class="p-montant">4,46€</span>
+                        <img src="./images/delete.gif" alt="delete" class="p-delete">
+                    </div>
+                </div>
+            </div>
+            <div class="p-row">
+                <img src="./images/image-2.jpg" alt="">
+                <div class="p-retails">
+                    <h2 class='p-titre'>Titre</h2>
+                    <div class="p-more">
+                        <span class="p-quantite">2</span>
+                        <span class="p-montant">4,46€</span>
+                        <img src="./images/delete.gif" alt="delete" class="p-delete">
+                    </div>
+                </div>
+            </div>
+            <div class="p-row">
+                <img src="./images/image-2.jpg" alt="">
+                <div class="p-retails">
+                    <h2 class='p-titre'>Titre</h2>
+                    <div class="p-more">
+                        <span class="p-quantite">2</span>
+                        <span class="p-montant">4,46€</span>
+                        <img src="./images/delete.gif" alt="delete" class="p-delete">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="arbreIsAllowed" style="color: darkgreen;">
+            1 commande = 1 Arbre
+        </div>
+        <div class="total">
+            Total: <span class="p-total">2.23</span>€
+        </div>
+        <div class="commande">
+            <button class="com">Passer ma commmande</button>
+            <button class="devis">Demander un devis</button>
+        </div>
+    </div>
+
+    <div class="modal autorisation">
+        <h1>Votre article a bien été ajouté au panier !</h1>
+        <div class="about">
+            <img src="./images/image-2.jpg" alt="">
+            <div class="au-details">
+                <div class="au-row"><h2>Basket</h2></div>
+                <div class="au-row">Quantité: <span class="au-quantite">1</span></div>
+                <div class="au-row">Couleur: <span class="au-couleur">Noir</span></div>
+                <div class="au-row">Matière: <span class="au-matiere">Cuire</span></div>
+            </div>
+        </div>
+        <h3>Voulez-vous planter un arbre ? Une bonne action qui ne vous coutera que 1€ !</h3>
+        <button onclick="parentR(this, true)" class="com">Oui</button>
+        <button onclick="parentR(this, false)" class="com" style="background-color: transparent; border: 1px solid red; color:red">Non</button>
+    </div>
+
+    <script>
+const qte = document.querySelector('.quantite'),
+couleur = document.querySelector('.couleur'),
+matiere = document.querySelector('.matiere'),
+unit = document.querySelector('.prix-unitaire span'),
+glob = document.querySelector('.prix-global span'),
+opener = document.querySelector('.opener'),
+panier = document.querySelector('.p-panier'),
+p_list = document.querySelector('.p-container'),
+p_total = document.querySelector('.p-total'),
+ajouter = document.querySelector('.ajouter'),
+h_deux = document.querySelector('.details h2'),
+autorisation = document.querySelector('.autorisation');
+let count = opener.parentNode.querySelector('span');
+
+let allowArbre = false;
+
+panier.style.top = opener.offsetTop + 80 + "px";
+panier.style.left = "auto";
+panier.style.height = "300px";
+panier.style.right = "20px";
+
+ajouter.onclick = (e) => {
+    if (allowArbre === false) {
+        autorisation.style.display = "block";
+    }
+    ajout();
+};
+
+function ajout (props = {}) {
+    count.innerText = parseInt(count.innerText)+1;
+    p_list.innerHTML += `<div class="p-row">
+                <img src="./images/image-2.jpg" alt="">
+                <div class="p-retails">
+                    <h2 class='p-titre'>${h_deux.innerText}</h2>
+                    <div class="p-more">
+                        <span class="p-quantite">${qte.value}</span>
+                        <span class="p-montant">${parseFloat(glob.innerText)}€</span>
+                        <img src="./images/delete.gif" alt="delete" class="p-delete" onclick="del(this)">
+                    </div>
+                </div>
+            </div>`;
+}
+
+function parentR (e, verif) {
+    allowArbre = verif;
+    e.parentNode.style.display = "none";
+}
+
+function del(e){
+    count.innerText = parseInt(count.innerText)-1;
+    e.parentNode.parentNode.parentNode.remove();
+}
+
+opener.onclick = (e) => {
+    if (panier.style.display == 'none') {
+        e.stopPropagation();
+        panier.style.display = 'block';
+        if (allowArbre === true) {
+            document.querySelector('.arbreIsAllowed').style.display = 'block';
+        }else{
+            document.querySelector('.arbreIsAllowed').style.display = 'none';
+        }
+
+        let rows = document.querySelectorAll(".p-montant"),
+        compter = 0;
+        for (let row of rows) {
+            compter += parseFloat(row.innerText);
+        }
+        p_total.innerText = compter.toFixed(2);
+    }
+};
+
+panier.onclick = (e) => {
+    e.stopPropagation();
+};
+
+window.onclick = (e) => {
+    panier.style.display = 'none';
+};
+
+
+qte.onchange = (e) => {
+    let value = parseFloat(unit.innerText)*qte.value;
+    glob.innerText = value.toFixed(2);
+};
+    </script>
+    <script type="module">
+        import {test} from "./js/main.js";
+        console.log(test);
+    </script>
+</body>
+</html>
